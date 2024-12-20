@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HONEYBEE'Z Home</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+            color: #333;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;           
+         
+           
+        }
+        .navbar a {
+            margin: 0 25px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1.1em;
+        }
+        .navbar a:hover {
+            color: #ffcc00;
+            text-decoration: none;
+            transform: scale(1.1);
+        }
+
+        /* Header Section */
+        header {
+            text-align: center;
+            background: linear-gradient(145deg, #ffcc00, #ff9900);
+            padding: 80px 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            color: white;
+            margin-top: 20px;
+            margin-left: 50px;
+            
+            margin-right: 50px
+        }
+        header h1 {
+            
+            color: #222;
+            font-size: 3.5em;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 15px;
+            font-weight: 300;
+        }
+
+        /* Main Container */
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        /* Category Box */
+        .category {
+            background-color: white;
+            width: 280px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+        .category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+            background-color: #f9f9f9;
+        }
+        .category img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .category:hover img {
+            transform: scale(1.05);
+        }
+        .category h3 {
+            margin: 20px 0 10px;
+            font-size: 1.6em;
+            color: #333;
+            letter-spacing: 0.5px;
+        }
+        .category a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background-color: #ffcc00;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            /* transition: background-color 0.3s ease, transform 0.3s ease; */
+        }
+        .category a:hover {
+            background-color: #e6a800;
+            /* transform: scale(1.1); */
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        footer p {
+            font-size: 1em;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="contact.html">Contact</a>
+    </div>
+   
+
+    <header>
+        <h1>Welcome to HONEYBEE'Z</h1>
+        <p>Your one-stop shop for premium honey, honeycomb, dry fruits, and more!</p>
+    </header>
+
+    <div class="container">
+        <div class="category">
+            <img src="fer.jpg" alt="Honey">
+            <h3>Honey</h3>
+            <a href="honey.html">View Products</a>
+        </div>
+        <div class="category">
+            <img src="comb.jpg" alt="Honeycomb">
+            <h3>Honeycomb</h3>
+            <a href="honeycomb.html">View Products</a>
+        </div>
+        <div class="category">
+            <img src="dsa.png" alt="Dates">
+            <h3>Dates</h3>
+            <a href="dates.html">View Products</a>
+        </div>
+        <div class="category">
+            <img src="desi.jpg" alt="Desi Ghee">
+            <h3>Desi Ghee</h3>
+            <a href="desi_ghee.html">View Products</a>
+        </div>
+        <div class="category">
+            <img src="sha.jpg" alt="Drinks">
+            <h3>Drinks</h3>
+            <a href="drinks.html">View Products</a>
+        </div>
+        <div class="category">
+            <img src="kh.jpg" alt="Kushta">
+            <h3>Kushta</h3>
+            <a href="kushta.html">View Products</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 HONEYBEE'Z. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

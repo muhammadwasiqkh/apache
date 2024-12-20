@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - HONEYBEE'Z</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        .navbar {
+            background-color: #ffcc00;
+            padding: 1em;
+            text-align: center;
+        }
+        .navbar a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffcc00;
+            border: none;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .container button:hover {
+            background-color: #e6b800;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="container">
+        <h2>Register</h2>
+        <!-- Registration Form -->
+        <form onsubmit="registerUser(event)">
+            <label for="username">Username (Email)</label>
+            <input type="text" id="username" name="username" placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 HONEYBEE'Z. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Users object (shared across login and register)
+        const users = {
+            "Hassan": "xyz@12",
+            "Sameer": "xyz@123",
+            "Hammad": "xyz@1234",
+            "Abdul Ahad Siddiqui": "xyz@12345"
+        };
+
+        function registerUser(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get input values
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            // Validate inputs
+            if (!username || !password) {
+                alert("Please fill in both fields.");
+                return;
+            }
+
+            // Check if the username already exists
+            if (users[username]) {
+                alert("This username is already registered. Please try logging in.");
+            } else {
+                // Add new user to the `users` object
+                users[username] = password;
+                alert("Registration successful! You can now log in.");
+                console.log("Updated Users:", users); // Debugging purpose
+                window.location.href = "login.html"; // Redirect to login page
+            }
+        }
+    </script>
+</body>
+</html>
