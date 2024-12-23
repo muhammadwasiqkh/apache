@@ -30,17 +30,14 @@ pipeline {
 
        stage('Deploy to Remote Server') {
             steps {
-                script {
-                    echo 'Deploying HTML file to the remote server...'
-
-                    def remoteServer = '13.51.194.44' // Replace with the public IP of your EC2 instance
+               
 
                     sshagent(['wasiq']) { // Use Jenkins credentials ID for SSH
                         // Copy the HTML package to the remote server
-                        sh "scp -o StrictHostKeyChecking=no -r * ubuntu@${remoteServer}:/var/www/html/"
+                        sh "scp -o StrictHostKeyChecking=no -r * ubuntu@13.51.194.44/var/www/html/"
 
                     }
-                }
+                
             }
         }
     }
