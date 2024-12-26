@@ -11,7 +11,6 @@ pipeline {
                         branches: [[name: '*/main']], // Replace 'main' with your branch name if needed
                         userRemoteConfigs: [[
                             url: 'https://github.com/muhammadwasiqkh/apache.git', // Replace with your repository URL
-                           
                         ]]
                     ])
                 }
@@ -21,23 +20,33 @@ pipeline {
         stage('Package') {
             steps {
                 script {
-                    echo 'Packaging HTML file...'
-                    // Create a tarball with the HTML file
-                    sh 'tar -czf app.tar.gz *.html'
+                    echo 'Packaging HTML files...'
+                    // Create a tarball with HTML, CSS, and JS files
+                    sh 'tar -czf app.tar.gz *.html *.css *.js' // Adjust this based on your file types
                 }
             }
         }
 
-       stage('Deploy to Remote Server') {
+        stage('Deploy to Remote Server') {
             steps {
-               
+                sshagent(['wasiq']) { // Use Jenkins credentials ID for SSH
+                    echo 'Copying tarball to the remote server...'
+                    // Copy the tarball to the remote server
+                    sh "scp -o StrictHostKeyChecking=no app.tar.gz ubuntu@16.170.226.85:/tmp/"
+                }
+            }
+        }
 
-                    sshagent(['wasiq']) { // Use Jenkins credentials ID for SSH
-                        // Copy the HTML package to the remote server
-                        sh "scp -o StrictHostKeyChecking=no -r * ubuntu@16.170.226.85:/var/www/html/"
-
-                    }
-                
+        stage('Extract and Deploy') {
+            steps {
+                sshagent(['wasiq']) { // Use Jenkins credentials ID for SSH
+                    echo 'Extracting files on the remote server...'
+                    // Extract the tarball into /var/www/html/
+                    sh """
+                    ssh -o StrictHostKeyChecking=no ubuntu@16.170.226.85 'tar -xzf /tmp/app.tar.gz -C /var/www/html/'
+                    ssh -o StrictHostKeyChecking=no ubuntu@16.170.226.85 'rm /tmp/app.tar.gz' // Cleanup
+                    """
+                }
             }
         }
     }
