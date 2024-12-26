@@ -34,7 +34,7 @@ pipeline {
 
                     sshagent(['wasiq']) { // Use Jenkins credentials ID for SSH
                         // Copy the HTML package to the remote server
-                        sh "scp -o StrictHostKeyChecking=no -r * ubuntu@13.51.194.44/var/www/html/"
+                        sh "scp -o StrictHostKeyChecking=no -r * ubuntu@16.170.226.85/var/www/html/"
 
                     }
                 
