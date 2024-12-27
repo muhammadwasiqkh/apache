@@ -43,8 +43,8 @@ pipeline {
                     echo 'Extracting files on the remote server...'
                     // Extract the tarball into /var/www/html/
                     sh """
-                    ssh -o StrictHostKeyChecking=no ubuntu@16.170.226.85 'tar -xzf /tmp/app.tar.gz -C /var/www/html/'
-                    ssh -o StrictHostKeyChecking=no ubuntu@16.170.226.85 'rm /tmp/app.tar.gz' // Cleanup
+                    ssh -o StrictHostKeyChecking=no ubuntu@16.171.133.29 'tar -xzf /tmp/app.tar.gz -C /var/www/html/'
+                    ssh -o StrictHostKeyChecking=no ubuntu@16.171.133.29 'rm /tmp/app.tar.gz' // Cleanup
                     """
                 }
             }
